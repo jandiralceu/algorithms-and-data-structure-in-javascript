@@ -3,7 +3,7 @@ function binarySearch(listNumber: number[], num: number) {
   let highIndex = listNumber.length - 1;
 
   while (lowIndex <= highIndex) {
-    let midIndex = Math.floor((highIndex + lowIndex) / 2);
+    const midIndex = Math.floor((highIndex + lowIndex) / 2);
 
     if (listNumber[midIndex] === num) return midIndex;
     else if (num > listNumber[midIndex]) lowIndex = midIndex;

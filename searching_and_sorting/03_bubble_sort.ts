@@ -1,8 +1,4 @@
-function swap(listNumber: number[], firstIndex: number, secondIndex: number) {
-  let temp = listNumber[firstIndex];
-  listNumber[firstIndex] = listNumber[secondIndex];
-  listNumber[secondIndex] = temp;
-}
+import { swap } from "../shared/fn";
 
 function bubbleSort(listNumber: number[]) {
   for (let i = 0, arrayLength = listNumber.length; i < arrayLength; i++) {
