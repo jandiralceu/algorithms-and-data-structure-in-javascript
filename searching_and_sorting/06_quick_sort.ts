@@ -1,4 +1,4 @@
-function partition(numbersList, left, right) {
+export function partition(numbersList, left, right) {
   let pivot = numbersList[Math.floor((right + left) / 2)];
 
   while (left <= right) {
@@ -16,7 +16,7 @@ function partition(numbersList, left, right) {
       numbersList[right] = temp;
 
       left++;
-      right++;
+      right--;
     }
   }
 
