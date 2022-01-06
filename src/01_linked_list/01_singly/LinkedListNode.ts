@@ -1,4 +1,4 @@
-export class SinglyLinkedListNode {
+export class LinkedListNode {
   constructor(public data, public next = null) {}
 
   toString() {

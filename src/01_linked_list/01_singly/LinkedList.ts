@@ -1,9 +1,9 @@
-import { SinglyLinkedListNode } from "./SinglyLinkedListNode";
+import { LinkedListNode } from "./LinkedListNode";
 
-export class SinglyLinkedList {
+export class LinkedList {
   constructor(
-    public head: SinglyLinkedListNode | null = null, // First item in the list
-    public tail: SinglyLinkedListNode | null = null // Last item in the list
+    public head: LinkedListNode | null = null, // First item in the list
+    public tail: LinkedListNode | null = null // Last item in the list
   ) {}
 
   // This function has a time complexity = O(n)
@@ -30,7 +30,7 @@ export class SinglyLinkedList {
 
   // This function has a time complexity = O(1)
   append(value) {
-    const newNode = new SinglyLinkedListNode(value);
+    const newNode = new LinkedListNode(value);
 
     if (!this.head) {
       this.head = newNode;
