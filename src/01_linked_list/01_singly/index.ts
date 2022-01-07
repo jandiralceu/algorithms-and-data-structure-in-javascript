@@ -28,6 +28,9 @@ console.log(linkedList.toArray());
 linkedList.deleteTail();
 console.log(linkedList.toArray());
 
-console.log(linkedList.find(2));
+console.log(linkedList.search(2));
 
-console.log("Not found:\n", linkedList.find(99));
+console.log("Not found:\n", linkedList.search(99));
+
+console.log(linkedList.head);
+console.log(linkedList.tail);

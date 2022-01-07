@@ -6,19 +6,6 @@ export class LinkedList {
     public tail: LinkedListNode | null = null // Last item in the list
   ) {}
 
-  // This function has a time complexity = O(n)
-  toArray() {
-    const nodes = [];
-    let currentNode = this.head;
-
-    while (currentNode) {
-      nodes.push(currentNode.data);
-      currentNode = currentNode.next;
-    }
-
-    return nodes;
-  }
-
   // This function has a time complexity = O(1)
   prepend(value) {
     const newNode = new LinkedListNode(value, this.head);
@@ -47,8 +34,22 @@ export class LinkedList {
   }
 
   // This function has a time complexity = O(n)
+  search(value) {
+    if (!this.head || !value) return null;
+
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (currentNode.data === value) return true;
+      currentNode = currentNode.next;
+    }
+
+    return false;
+  }
+
+  // This function has a time complexity = O(n)
   delete(value) {
-    if (!this.head) return null;
+    if (!this.head || !value) return null;
 
     let deletedNode = null;
 
@@ -76,13 +77,29 @@ export class LinkedList {
   }
 
   // This function has a time complexity = O(1)
-  deleteTail() {
-    const deletedTail = this.tail;
+  deleteHead() {
+    if (!this.head) return null;
+
+    const deletedHead = this.head.data;
 
     if (this.head === this.tail) {
       this.head = null;
       this.tail = null;
+    } else {
+      this.head = this.head.next;
+    }
 
+    return deletedHead;
+  }
+
+  // This function has a time complexity = O(1)
+  deleteTail() {
+    if (!this.tail) return null;
+
+    const deletedTail = this.tail.data;
+
+    if (this.tail === this.head) {
+      this.head = this.tail = null;
       return deletedTail;
     }
 
@@ -98,34 +115,16 @@ export class LinkedList {
     return deletedTail;
   }
 
-  // This function has a time complexity = O(1)
-  deleteHead() {
-    if (!this.head) return null;
-
-    const deletedHead = this.head;
-
-    if (this.head.next) this.head = this.head.next;
-    else {
-      this.head = null;
-      this.tail = null;
-    }
-    return deletedHead;
-  }
-
   // This function has a time complexity = O(n)
-  find(value) {
-    if (!this.head || !value) return null;
-
+  toArray() {
+    const nodes = [];
     let currentNode = this.head;
 
     while (currentNode) {
-      if (currentNode.data === value) {
-        return currentNode;
-      }
-
+      nodes.push(currentNode.data);
       currentNode = currentNode.next;
     }
 
-    return null;
+    return nodes;
   }
 }
