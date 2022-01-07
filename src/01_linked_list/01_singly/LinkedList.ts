@@ -127,4 +127,10 @@ export class LinkedList {
 
     return nodes;
   }
+
+  toString(callback?: Function) {
+    return this.toArray()
+      .map((node) => node.toString(callback))
+      .toString();
+  }
 }
